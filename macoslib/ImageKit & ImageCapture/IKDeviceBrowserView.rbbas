@@ -50,10 +50,6 @@ Inherits Canvas
 		  
 		  SetDelegate
 		  
-		  #if NOT DisableUndocumentedFeatures
-		    SetHidesExtrasContainer   true
-		  #endif
-		  
 		  dim icdb as ICDeviceBrowser
 		  
 		  icdb = me.DeviceBrowser
@@ -255,29 +251,6 @@ Inherits Canvas
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetHidesExtrasContainer(YesNo as Boolean)
-		  //# Show/hide the control bar at the bottom of the View
-		  
-		  //@ The control bar may have several buttons which are independently showed/hidden with:
-		  //@   • SetHidesNetworkButton
-		  //@   • SetHidesResizeView
-		  
-		  #if TargetMacOS AND NOT DisableUndocumentedFeatures
-		    declare sub setHidesExtrasContainer lib IKLib selector "setHidesExtrasContainer:" (id as Ptr, value as Boolean)
-		    declare function subviews lib CocoaLib selector "subviews" (id as Ptr) as Ptr
-		    
-		    dim nsa as NSArray = new NSArray( subviews( me.id ))
-		    
-		    setHidesExtrasContainer( nsa.Value( 0 ), YesNo )
-		    SetHidesResizeView   true
-		    SetHidesNetworkButton  true
-		    SetHidesAccessoryView  false
-		    me.Invalidate
-		  #endif
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub SetHidesNetworkButton(YesNo as Boolean)
 		  //# Undocumented feature which adds/removes a network icon to the control bar to show/hide network devices
 		  
@@ -468,9 +441,13 @@ Inherits Canvas
 		#tag Getter
 			Get
 			  #if TargetMacOS
-			    dim p as Ptr = me.SelectedDevicePtr
+			    dim p as Ptr = self.SelectedDevicePtr
 			    
-			    return  ImageKit_ImageCapture.ICDeviceFromPtr( p )
+			    if p=nil then
+			      return nil
+			    else
+			      return  ImageKit_ImageCapture.ICDeviceFromPtr( p )
+			    end if
 			  #endif
 			End Get
 		#tag EndGetter
@@ -481,9 +458,9 @@ Inherits Canvas
 		#tag Getter
 			Get
 			  #if TargetMacOS
-			    declare function selectedDevice lib IKLib selector "selectedDevice" (id as Ptr) as Ptr
+			    declare function selectedDevice_ lib IKLib selector "selectedDevice" (id as Ptr) as Ptr
 			    
-			    return   selectedDevice( me.id )
+			    return   selectedDevice_( self.id )
 			  #endif
 			End Get
 		#tag EndGetter

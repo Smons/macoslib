@@ -7,7 +7,7 @@ Begin Window IKDeviceBrowserWND
    Frame           =   0
    FullScreen      =   False
    HasBackColor    =   False
-   Height          =   5.72e+2
+   Height          =   4.3e+2
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -56,14 +56,14 @@ Begin Window IKDeviceBrowserWND
       Visible         =   True
       Width           =   377
    End
-   Begin PushButton PushButton3
+   Begin PushButton OpenBTN
       AutoDeactivate  =   True
       Bold            =   ""
       ButtonStyle     =   0
       Cancel          =   ""
       Caption         =   "Open…"
       Default         =   ""
-      Enabled         =   True
+      Enabled         =   False
       Height          =   20
       HelpTag         =   ""
       Index           =   -2147483648
@@ -172,7 +172,6 @@ Begin Window IKDeviceBrowserWND
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Search:"
       TextAlign       =   0
       TextColor       =   &h000000
@@ -303,7 +302,6 @@ Begin Window IKDeviceBrowserWND
       Selectable      =   False
       TabIndex        =   11
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Show as:"
       TextAlign       =   0
       TextColor       =   &h000000
@@ -338,7 +336,6 @@ Begin Window IKDeviceBrowserWND
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "The following uses ImageKit (Mac OS X 10.6+) to find the connected scanners, multifunction devices, cameras, iPod or iPhones connected to your computer just like ImageCapture.app does.\r\rWhen opening a device, you can transfer pictures and/or movies to the computer.\r\rNOTE that ImageKit is easy to use and provides a localized UI for most operations. It is based on ImageCaptureCore (IC... objects) which is more powerful but much more difficult to use and does not provide any UI."
       TextAlign       =   0
       TextColor       =   &h000000
@@ -404,7 +401,6 @@ Begin Window IKDeviceBrowserWND
       Selectable      =   False
       TabIndex        =   16
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Scan/download as:"
       TextAlign       =   0
       TextColor       =   &h000000
@@ -417,14 +413,14 @@ Begin Window IKDeviceBrowserWND
       Visible         =   True
       Width           =   198
    End
-   Begin PushButton PushButton4
+   Begin PushButton InfoBTN
       AutoDeactivate  =   True
       Bold            =   ""
       ButtonStyle     =   0
       Cancel          =   ""
       Caption         =   "Info"
       Default         =   ""
-      Enabled         =   True
+      Enabled         =   False
       Height          =   20
       HelpTag         =   ""
       Index           =   -2147483648
@@ -447,111 +443,6 @@ Begin Window IKDeviceBrowserWND
       Underline       =   ""
       Visible         =   True
       Width           =   80
-   End
-   Begin CheckBox CheckBox6
-      AutoDeactivate  =   True
-      Bold            =   ""
-      Caption         =   "Show control bar"
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   ""
-      Left            =   11
-      LockBottom      =   ""
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   ""
-      LockTop         =   True
-      Scope           =   0
-      State           =   0
-      TabIndex        =   19
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "SmallSystem"
-      TextSize        =   0
-      TextUnit        =   0
-      Top             =   390
-      Underline       =   ""
-      Value           =   False
-      Visible         =   True
-      Width           =   138
-   End
-   Begin Separator Separator2
-      AutoDeactivate  =   True
-      Enabled         =   True
-      Height          =   5
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   11
-      LockBottom      =   ""
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   ""
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   21
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Top             =   445
-      Visible         =   True
-      Width           =   662
-   End
-   Begin Label Label6
-      AutoDeactivate  =   True
-      Bold            =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   107
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   ""
-      Left            =   16
-      LockBottom      =   ""
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   ""
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   22
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "UNDOCUMENTED FEATURES:\r\rA control bar can be displayed at the bottom of the control, as in the ImageCapture.app application. Its main feature here would be to show/hide the settings for the selected item.\r\rNote that, as it is not documented, such feature might cause your application to be rejected by the MAS. If you want that feature to be completely disabled, set the constant IKDeviceBrowserView.DisableUndocumentedFeatures to true."
-      TextAlign       =   0
-      TextColor       =   &h000000
-      TextFont        =   "SmallSystem"
-      TextSize        =   0
-      TextUnit        =   0
-      Top             =   456
-      Transparent     =   False
-      Underline       =   ""
-      Visible         =   True
-      Width           =   661
-   End
-   Begin Line Line1
-      BorderWidth     =   1
-      Enabled         =   True
-      Index           =   -2147483648
-      InitialParent   =   ""
-      LineColor       =   ""
-      LockedInPosition=   False
-      Scope           =   0
-      TabIndex        =   16
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Visible         =   True
-      X1              =   19
-      X2              =   19
-      Y1              =   412
-      Y2              =   444
    End
 End
 #tag EndWindow
@@ -586,6 +477,9 @@ End
 		Sub SelectionChanged(newSelection as ICDevice)
 		  
 		  DReport   "Selection changed"
+		  
+		  InfoBTN.Enabled = (newSelection<>nil)
+		  OpenBTN.Enabled = (newSelection<>nil)
 		  
 		  #pragma unused newSelection
 		  
@@ -638,11 +532,19 @@ End
 		End Function
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton3
+#tag Events OpenBTN
 	#tag Event
 		Sub Action()
 		  
-		  dim sel as Ptr = IKLB.SelectedDevice
+		  dim sel as Ptr
+		  
+		  try
+		    sel = IKLB.SelectedDevicePtr //That stupid NSObject.Operator_Convert can raise a NilObjectException here!
+		    
+		  catch exc
+		    return
+		  end try
+		  
 		  
 		  if Cocoa.InheritsFromClass( sel, "ICScannerDevice" ) then
 		    
@@ -663,6 +565,7 @@ End
 		    w2.Show
 		    
 		    w2 = nil
+		    
 		  else
 		    beep
 		    
@@ -712,7 +615,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton4
+#tag Events InfoBTN
 	#tag Event
 		Sub Action()
 		  
@@ -728,14 +631,6 @@ End
 		  DReport  "UUID:", icd.UUIDString
 		  DReport  "Serial number:", icd.serialNumberString
 		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events CheckBox6
-	#tag Event
-		Sub Action()
-		  
-		  IKLB.SetHidesExtrasContainer   NOT (me.Value)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
