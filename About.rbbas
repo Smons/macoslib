@@ -70,16 +70,22 @@ Protected Module About
 		Add new notes above existing ones, and remember to increment the Version constant.
 		Contributors are identified by initials. See the "Contributors" note for full names.
 		
-		157: 2013-10-27 by SM
-		- Added NSThread.CallStackSymbols method.
-		- Created module ObjcRuntime which will define the C-level Objective-C Runtime functions.
-		- Extended NotificationObserver so it can observe Distributed Notifications too.
-		- Added getting/setting the new Mavericks Tags in NSURL and as an extension of FolderItem.
-		- Added SystemFinderTags and SystemFinderTagColors to the SystemExtensions module as a workaround to get Finder tags and their corresponding color.
-		- Improved DebugReports to properly handle Colors and array of Colors with or without alpha channel.
-		- The QuickStart window now makes the difference between a brand new user and someone who already ran macoslib and set the default message/button accordingly.
-		- Fixed DebugReport.PropertyList so it works on Mavericks and non-Apple OSes.
+		159: 2013-11-04 by TT
+		- Made NSURL more efficient by eliminating several superfluous calls to Cocoa.StringConstant and
+		   Cocoa.NSObjectFromNSPtr.
 		
+		158: 2013-11-04 by KT
+		- Added #if Target... pragmas for methods that had been missing them.
+		- Checked compilation for Carbon, Cocoa, Windows, and Linux.
+		
+		157: 2013-10-31 by KT
+		- Added pragmas for unused method parameters.
+		- Changed NSDictionary to accept and return NativeSubclass.DictionaryCaseSensitive instead of the native Dictionary.
+		- In NSDictionary/CFDictionary, swapped VariantValue and Operator_Convert code to avoid unnecessary conversion to Variant.
+		- Added #if TargetMacOS to CFDictionary.Operator_Convert.
+		- Added optimization to NSDictionary.Operator_Convert.
+		- Verified ability to compile for Windows, Cocoa, and Carbon in Real Studio 2012.
+		 
 		156: 2013-10-26 by KT
 		- Changed name of convenience classes from NSRegEx to MacRegEx.
 		- Added MacSystemProfiler.CurrentSSID shared method as convenience.
@@ -430,7 +436,7 @@ Protected Module About
 	#tag EndNote
 
 
-	#tag Constant, Name = Version, Type = Double, Dynamic = False, Default = \"157", Scope = Protected
+	#tag Constant, Name = Version, Type = Double, Dynamic = False, Default = \"159", Scope = Protected
 	#tag EndConstant
 
 
