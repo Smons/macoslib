@@ -508,7 +508,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ResourceValue(forKey as string, assigns newValue as NSObject) As boolean
+		Sub ResourceValue(forKey as string, assigns newValue as NSObject)
 		  //Set information about file/volume
 		  
 		  #if TargetMacOS
@@ -517,16 +517,15 @@ Inherits NSObject
 		    assertOSVersion  100600 //Snow Leopard
 		    
 		    dim err as Ptr
-		    dim OK as Boolean = setResourceValue(newValue.id, newValue, forKey, err )
+		    dim OK as Boolean = setResourceValue( self.id, newValue, forKey, err )
 		    
 		    if err <> nil then
 		      raise new NSException( err )
 		    end if
 		    
-		    return  OK
 		  #endif
 		  
-		End Function
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -539,7 +538,7 @@ Inherits NSObject
 		    assertOSVersion  100600 //Snow Leopard
 		    
 		    dim err as Ptr
-		    dim OK as Boolean = setResourceValue(newValue.id, newValue, forKey, err )
+		    dim OK as Boolean = setResourceValue( self.id, newValue, forKey, err )
 		    
 		    if err <> nil then
 		      raise new NSException( err )
@@ -1189,13 +1188,15 @@ Inherits NSObject
 			      dim nsa as NSArray
 			      
 			      nsa = NSArray( me.ResourceValue( NSURLTagNamesKey ))
+			      
+			      return  nsa
 			    end if
 			  #endif
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  //# Gets the tags
+			  //# Sets the tags
 			  
 			  #if TargetMacOS
 			    if IsMavericks then
